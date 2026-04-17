@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Space Grotesk", sans-serif;
+  --font-serif: "Cormorant Garamond", serif;
+  --color-punjab-green: #0a2f1f;
+  --color-punjab-accent: #1a4a35;
+  --color-punjab-light: #e6f0eb;
+  --color-brutal-black: #04120b;
+  --color-bento-dark: #092115;
+}
+
+@layer base {
+  body {
+    @apply font-sans bg-brutal-black text-white antialiased;
+  }
+
+  /* Custom scrollbar for Webkit (Chrome, Safari, etc.) */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: var(--color-brutal-black);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-punjab-accent);
+    border-radius: 4px;
+    border: 1px solid var(--color-brutal-black);
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--color-punjab-light);
+    opacity: 0.8;
+  }
+
+  /* Custom scrollbar for Firefox */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-punjab-accent) var(--color-brutal-black);
+  }
+}
+
+@layer utilities {
+  .bento-card {
+    border: 1px solid rgba(230, 240, 235, 0.1);
+    background-color: var(--color-bento-dark);
+    @apply p-6 flex flex-col relative transition-all duration-500 overflow-hidden;
+  }
+  .bento-card:hover {
+    border-color: var(--color-punjab-light);
+    box-shadow: 0 0 30px rgba(230, 240, 235, 0.05);
+  }
+  .bento-card-green {
+    background-color: var(--color-punjab-green);
+    border: 1px solid rgba(230, 240, 235, 0.2);
+  }
+  .bento-badge {
+    @apply absolute -top-2 -right-2 bg-punjab-light text-black px-2 py-1 text-[10px] font-bold uppercase rotate-[2deg] z-10;
+  }
+  .text-glow {
+    text-shadow: 0 0 15px rgba(230, 240, 235, 0.3);
+  }
+  .wedding-gradient {
+    background: linear-gradient(135deg, var(--color-punjab-green) 0%, var(--color-brutal-black) 100%);
+  }
+}
